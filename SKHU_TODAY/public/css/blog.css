@@ -1,0 +1,19 @@
+@import 'base.css';
+.wrap {width: 100%; max-width: 1200px; margin: auto; }
+.panel {background-color: #333; border-bottom: 4px solid #999; padding: 0 1rem;}
+  .panel > div {padding: 0.5rem;}
+  .logo {float: left; color:#f1f1f1; font-size: 1.5rem; font-weight: bold;}
+  .logins{float: right;}
+    #user_email {color:#fc9; margin-right: 1rem;}
+    #login_bt{}
+    #logout_bt{display: none;}
+.wrs {border: 4px solid rgb(12, 34, 58); margin:2rem 0; padding: 0.5rem;}
+  .wrs > li:first-child {float: left; width: calc(100% - 70px);}
+  .wrs > li:last-child {float:right; text-align: right;}
+.gbook {margin: 1.5rem 20px; box-shadow: 0 0 20px rgba(0,0,0,0.4); border-radius: 10px; border: 1px solid #ddd; padding: 1rem;}
+.gbook > li:first-child {color:#999;}
+.gbook > li:nth-child(2) {color:rgb(15, 49, 80);  border: rgb(187, 206, 243);  font-size:1.25rem; /* padding:0.5rem;*/
+}
+.gbook > li:last-child {padding:0.5rem 0;}
+.gbook .fas {color:#999; cursor:pointer; font-size:0.875rem;}
+.gbook .fas:hover {color:#f60;}

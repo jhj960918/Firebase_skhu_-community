@@ -1,0 +1,902 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css"/>
+
+		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+
+		<script src="https://code.jquery.com/jquery-latest.js"></script>
+
+		<style>
+			/* The Modal (background) */
+			.modal {
+				display: none; /* Hidden by default */
+				position: fixed; /* Stay in place */
+				z-index: 1; /* Sit on top */
+				left: 0;
+				top: 0;
+				width: 100%; /* Full width */
+				height: 100%; /* Full height */
+				overflow: auto; /* Enable scroll if needed */
+				background-color: rgb(0,0,0); /* Fallback color */
+				background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+			}
+
+			/* Modal Content/Box */
+			.modal-content {
+				background-color: #fefefe;
+				margin: 15% auto; /* 15% from the top and centered */
+				padding: 20px;
+				border: 1px solid #888;
+				width: 30%; /* Could be more or less, depending on screen size */
+			}
+
+		</style>
+
+		<!-- The Modal -->
+		<div id="mymodal1" class="modal">
+
+			<!-- Modal content -->
+			<div class="modal-content">
+
+				<p style="text-align: center;">
+					<span style="font-size: 14pt;"><b><span style="font-size: 24pt;">기프티콘 응모하기</span></b></span>
+				</p>
+				<p style="text-align: center; line-height: 1.5;">
+					<br />
+				</p>
+				<p style="text-align: center; line-height: 1.5;">
+					<img src="img/album6.jpg"width="200" height="200" alt="My Image">
+					<br />
+				</p>
+				<p style="text-align: center; line-height: 1.5;">
+					<span style="font-size: 14pt;">오늘도 힘내 세트(이너츠+아메리카노)</span>
+				</p>
+				<p style="text-align: center; line-height: 1.5;">
+					<b><span style="color: rgb(255, 0, 0); font-size: 14pt;">선착순 1명</span></b>
+				</p>
+				<p style="text-align: center; line-height: 1.5;">
+					<span style="font-size: 14pt;">지금 빨리 응모하세요!</span>
+				</p>
+				<p style="text-align: center; line-height: 1.5;">
+					<span style="font-size: 14pt;">
+						<br />
+					</span>
+				</p>
+
+				<div style="cursor:pointer;background-color:#DDDDDD;text-align: center;padding-bottom: 10px;padding-top: 10px;" onClick="go_pop();">
+					<span class="pop_bt" style="font-size: 13pt;" > 응모하기 </span>
+				</div>
+
+				<p>
+					<br />
+				</p>
+				<div style="cursor:pointer;background-color:#DDDDDD;text-align: center;padding-bottom: 10px;padding-top: 10px;" onClick="closeWin();">
+					<span class="pop_bt" style="font-size: 13pt;" > 닫기 </span>
+				</div>
+
+				<p>
+				<br>	<input type="checkbox" name="close" value="OK" onclick="javascript:closeWin('mymodal1', 1);"/>
+				하루동안 이 창을 열지 않음
+				</p>
+			
+
+			</div>
+
+		</div>
+		<!--End Modal-->
+
+		<script type="text/javascript">
+			openWin('mymodal1');
+
+			function openWin(winName) {
+				var blnCookie = getCookie(winName);
+				var obj = eval("window." + winName);
+				if (!blnCookie) {
+					obj.style.display = "block";
+				}
+			}
+
+			// 창닫기
+			function closeWin(winName, expiredays) {
+				setCookie(winName, "done", expiredays);
+				var obj = eval("window." + winName);
+				$('#mymodal1').hide();
+			}
+
+			function closeWinAt00(winName, expiredays) {
+				setCookieAt00(winName, "done", expiredays);
+				var obj = eval("window." + winName);
+				$('#mymodal1').hide();
+			}
+
+			// 쿠키 가져오기
+			function getCookie(name) {
+				var nameOfCookie = name + "=";
+				var x = 0;
+				while (x <= document.cookie.length) {
+					var y = (x + nameOfCookie.length);
+					if (document.cookie.substring(x, y) == nameOfCookie) {
+						if (( endOfCookie = document.cookie.indexOf(";", y)) == -1)
+							endOfCookie = document.cookie.length;
+						return unescape(document.cookie.substring(y, endOfCookie));
+					}
+					x = document.cookie.indexOf(" ", x) + 1;
+					if (x == 0)
+						break;
+				}
+				return "";
+			}
+
+			// 24시간 기준 쿠키 설정하기
+			// expiredays 후의 클릭한 시간까지 쿠키 설정
+			function setCookie(name, value, expiredays) {
+				var todayDate = new Date();
+				todayDate.setDate(todayDate.getDate() + expiredays);
+				document.cookie = name + "=" + escape(value) + "; path=/; expires=" + todayDate.toGMTString() + ";"
+			}
+
+			//팝업 Close 기능
+			function close_pop(flag) {
+				$('#myModal').hide();
+			};
+			function go_pop(flag) {
+
+				location.href = "rotate.html", '팝업', 'width=300, height=300, menubar=no, status=no, toolbar=no';
+
+			};
+
+		</script>
+
+		<title>skhu today</title>
+		<link rel="icon" href="img/skhu_logo.jpg">
+		<!-- CSS 링크 -->
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/animate.css">
+		<link rel="stylesheet" href="css/owl.carousel.min.css">
+		<link rel="stylesheet" href="css/themify-icons.css">
+		<link rel="stylesheet" href="css/flaticon.css">
+		<link rel="stylesheet" href="css/magnific-popup.css">
+		<link rel="stylesheet" href="css/style.css">
+
+	</head>
+
+	<body>
+
+		<!-- 헤더 시작 -->
+		<header class="header_area">
+			<div class="sub_header">
+				<div class="container">
+					<div class="row align-items-center">
+						<div class="col-4 col-md-4 col-xl-6">
+							<!-- 메인화면 가운데 제일 큰 로고사진 -->
+							<div id="logo">
+								<a href="home.html"><img src="img/logo.png" height="40px" width="350px" alt="" title="" /></a>
+							</div>
+
+						</div>
+
+						<!-- skhu today 로고 -->
+						<div class="col-8 col-md-8 col-xl-6 ">
+							<div class="sub_header_social_icon float-right">
+								<button type="button" class="btn btn-danger" onclick="location.href='chatting.html'";>
+									채팅
+								</button>
+
+								<a href="#"><i class="flaticon-phone"></i>+02-2610-4334</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="main_menu">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12">
+							<nav class="navbar navbar-expand-lg navbar-light">
+								<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+									<i class="ti-menu"></i>
+								</button>
+
+								<!-- 네비게이션바 -->
+								<div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+									<ul class="navbar-nav">
+										<li class="nav-item active">
+											<a class="nav-link active" href="home.html">Home</a>
+										</li>
+										<li class="nav-item dropdown">
+											<a class="nav-link dropdown-toggle" href="about.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 학과소개 </a>
+											<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+												<a class="dropdown-item" href="about.html">학과소개</a>
+												<a class="dropdown-item" href="curriculum.html">교과과정</a>
+												<a class="dropdown-item" href="graduation.html">졸업요건</a>
+											</div>
+										</li>
+										<li class="nav-item">
+											<a href="gallery.html" class="nav-link">학과사진</a>
+										</li>
+										<li class="nav-item dropdown">
+											<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 학습자료 </a>
+											<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+												<a class="dropdown-item" href="elements.html">Elements</a>
+												<a class="dropdown-item" href="studydata.html">학습자료</a>
+											</div>
+										</li>
+										<li class="nav-item">
+											<a href="
+
+											blog.html" class="nav-link">자유게시판</a>
+										</li>
+										<li class="nav-item">
+											<a href="contact.html" class="nav-link">교내연락처</a>
+										</li>
+
+									</ul>
+								</div>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- 헤더 끝 -->
+
+		<!-- 배너 시작 -->
+		<section class="banner_part">
+			<div class="container">
+				<div class="row align-content-center">
+					<div class="col-lg-7 col-xl-6">
+						<div class="banner_text">
+							<!-- <h5>Welcome to Leopet</h5>
+							<h1>Give your pet
+							Best Care</h1>
+							<a href="#" class="btn_1">OUR SERVIECS</a> -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- 배너 끝 -->
+
+		<!-- about 시작 -->
+		<section class="about_part section_padding">
+			<div class="container">
+				<div class="row align-items-center justify-content-between">
+					<div class="col-md-6">
+						<div class="about_img">
+							<img src="img/about.png" alt="">
+						</div>
+					</div>
+					<div class="col-md-5">
+						<div class="about_text">
+							<img src="img/about_icon.png" class="about_icon" alt="">
+							<h2>글로컬IT학과</h2>
+							<h4>"Glocal = Global + local"</h4>
+							<p>
+								글로컬IT학과는 IT(정보기술)의 기본원리를 이해하고 창의적으로 활용하여 인간 중심의 정보사회 구현에 공헌할 수 있는 IT 인재 양성을 목표로 합니다. 이를 위하여 정보기술 교육을 통하여 컴퓨터 프로그래밍 언어 사용 능력을 키웁니다. 또, 커뮤니케이션 기술 교육을 통하여 국제적인 의사소통 수단인 영어 사용 능력을 높이며 전문성과 실무 능력을 위하여 해외(인도 및 제3국)에서 1년간 선진 IT 연수 교육을 받습니다.
+							</p>
+							<a href="http://web.skhu.ac.kr/new/01_intro/intro_01.php" class="btn_1">자세히 보기</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- about 끝 -->
+		<div id="map" style="width:100%;height:600px; position: relative;
+		top: 5px;
+		"></div>
+
+		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d3918c0ce45b506bb9579c0510660b0d"></script>
+		<script>
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+mapOption = {
+center: new kakao.maps.LatLng( 37.48764384326228 , 126.82583116731853), // 지도의 중심좌표
+level: 2 // 지도의 확대 레벨
+};
+
+var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+///////////////////////////새천년관
+// 마커를 표시할 위치입니다
+var position =  new kakao.maps.LatLng(37.4882513197699,126.82535485551257   );
+
+// 마커를 생성합니다
+var marker = new kakao.maps.Marker({
+position: position,
+clickable: true // 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정합니다
+});
+
+// 아래 코드는 위의 마커를 생성하는 코드에서 clickable: true 와 같이
+// 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정합니다
+// marker.setClickable(true);
+
+// 마커를 지도에 표시합니다.
+marker.setMap(map);
+// 마커를 지도에 표시합니다.
+
+var iwContent = '<div"><img src="img/01.png" width="400px" /></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+
+// 인포윈도우를 생성합니다
+var infowindow = new kakao.maps.InfoWindow({
+content : iwContent,
+removable : iwRemoveable
+});
+
+// 마커에 클릭이벤트를 등록합니다
+kakao.maps.event.addListener(marker, 'click', function() {
+// 마커 위에 인포윈도우를 표시합니다
+infowindow.open(map, marker);
+});
+
+///////////////////////////////새천년관
+
+//////////////////////////////////////////우편취급국
+// 마커를 표시할 위치입니다
+var position2 =  new kakao.maps.LatLng(37.48752219107335 ,126.82582014268426);
+
+// 마커를 생성합니다
+var marker2 = new kakao.maps.Marker({
+position: position2,
+clickable: true // 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정합니다
+});
+
+// 아래 코드는 위의 마커를 생성하는 코드에서 clickable: true 와 같이
+// 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정합니다
+// marker.setClickable(true);
+
+// 마커를 지도에 표시합니다.
+marker2.setMap(map);
+// 마커를 지도에 표시합니다.
+
+var iwContent2 = '<div"><img src="img/02.png" width="400px" /></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+
+// 인포윈도우를 생성합니다
+var infowindow2 = new kakao.maps.InfoWindow({
+content : iwContent2,
+removable : iwRemoveable
+});
+
+// 마커에 클릭이벤트를 등록합니다
+kakao.maps.event.addListener(marker2, 'click', function() {
+// 마커 위에 인포윈도우를 표시합니다
+infowindow2.open(map, marker2);
+});
+//////////////////////////////////////////우편취급국
+
+/////////////////////////성미가엘성당
+
+// 마커를 표시할 위치입니다
+var position3 =  new kakao.maps.LatLng(37.48791426939419,126.82591534292682 );
+
+// 마커를 생성합니다
+var marker3 = new kakao.maps.Marker({
+position: position3,
+clickable: true // 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정합니다
+});
+
+// 아래 코드는 위의 마커를 생성하는 코드에서 clickable: true 와 같이
+// 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정합니다
+// marker.setClickable(true);
+
+// 마커를 지도에 표시합니다.
+marker3.setMap(map);
+// 마커를 지도에 표시합니다.
+
+// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
+var iwContent3 = '<div"><img src="img/03.png" width="400px" /></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+
+// 인포윈도우를 생성합니다
+var infowindow3 = new kakao.maps.InfoWindow({
+content : iwContent3,
+removable : iwRemoveable
+});
+
+// 마커에 클릭이벤트를 등록합니다
+kakao.maps.event.addListener(marker3, 'click', function() {
+// 마커 위에 인포윈도우를 표시합니다
+infowindow3.open(map, marker3);
+});
+
+/////////////////////////성미가엘성당
+
+////////////////////중앙도서관
+
+// 마커를 표시할 위치입니다
+var position4 =  new kakao.maps.LatLng(37.48807640008933 ,126.82588104524056 );
+
+// 마커를 생성합니다
+var marker4 = new kakao.maps.Marker({
+position: position4,
+clickable: true // 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정합니다
+});
+
+// 아래 코드는 위의 마커를 생성하는 코드에서 clickable: true 와 같이
+// 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정합니다
+// marker.setClickable(true);
+
+// 마커를 지도에 표시합니다.
+marker4.setMap(map);
+// 마커를 지도에 표시합니다.
+
+// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
+var iwContent4 = '<div"><img src="img/05.png" width="400px" /></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+
+// 인포윈도우를 생성합니다
+var infowindow4 = new kakao.maps.InfoWindow({
+content : iwContent4,
+removable : iwRemoveable
+});
+
+// 마커에 클릭이벤트를 등록합니다
+kakao.maps.event.addListener(marker4, 'click', function() {
+// 마커 위에 인포윈도우를 표시합니다
+infowindow4.open(map, marker4);
+});
+
+////////////////////중앙도서관
+
+////////////////////일만관
+
+// 마커를 표시할 위치입니다
+var position5 =  new kakao.maps.LatLng(37.48755423413069,126.82616493398498);
+
+// 마커를 생성합니다
+var marker5 = new kakao.maps.Marker({
+position: position5,
+clickable: true // 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정합니다
+});
+
+// 아래 코드는 위의 마커를 생성하는 코드에서 clickable: true 와 같이
+// 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정합니다
+// marker.setClickable(true);
+
+// 마커를 지도에 표시합니다.
+marker5.setMap(map);
+// 마커를 지도에 표시합니다.
+
+// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
+var iwContent5 = '<div"><img src="img/06.png" width="400px" /></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+
+// 인포윈도우를 생성합니다
+var infowindow5 = new kakao.maps.InfoWindow({
+content : iwContent5,
+removable : iwRemoveable
+});
+
+// 마커에 클릭이벤트를 등록합니다
+kakao.maps.event.addListener(marker5, 'click', function() {
+// 마커 위에 인포윈도우를 표시합니다
+infowindow5.open(map, marker5);
+});
+
+////////////////////////////일만관
+////////////////////미가엘관
+
+// 마커를 표시할 위치입니다
+var position6 =  new kakao.maps.LatLng(37.48749648277579,126.82671911391391);
+
+// 마커를 생성합니다
+var marker6 = new kakao.maps.Marker({
+position: position6,
+clickable: true // 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정합니다
+});
+
+// 아래 코드는 위의 마커를 생성하는 코드에서 clickable: true 와 같이
+// 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정합니다
+// marker.setClickable(true);
+
+// 마커를 지도에 표시합니다.
+marker6.setMap(map);
+// 마커를 지도에 표시합니다.
+
+// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
+var iwContent6 = '<div"><img src="img/07.png" width="400px" /></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+
+// 인포윈도우를 생성합니다
+var infowindow6 = new kakao.maps.InfoWindow({
+content : iwContent6,
+removable : iwRemoveable
+});
+
+// 마커에 클릭이벤트를 등록합니다
+kakao.maps.event.addListener(marker6, 'click', function() {
+// 마커 위에 인포윈도우를 표시합니다
+infowindow6.open(map, marker6);
+});
+
+///////////////////////////////////미가엘관
+////////////////////이천환기념관
+
+// 마커를 표시할 위치입니다
+var position7 =  new kakao.maps.LatLng(37.487221585352586,126.82665756024683);
+
+// 마커를 생성합니다
+var marker7 = new kakao.maps.Marker({
+position: position7,
+clickable: true // 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정합니다
+});
+
+// 아래 코드는 위의 마커를 생성하는 코드에서 clickable: true 와 같이
+// 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정합니다
+// marker.setClickable(true);
+
+// 마커를 지도에 표시합니다.
+marker7.setMap(map);
+// 마커를 지도에 표시합니다.
+
+// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
+var iwContent7 = '<div"><img src="img/08.png" width="400px" /></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+
+// 인포윈도우를 생성합니다
+var infowindow7 = new kakao.maps.InfoWindow({
+content : iwContent7,
+removable : iwRemoveable
+});
+
+// 마커에 클릭이벤트를 등록합니다
+kakao.maps.event.addListener(marker7, 'click', function() {
+// 마커 위에 인포윈도우를 표시합니다
+infowindow7.open(map, marker7);
+});
+
+////////////////////////////이천환기념관
+////////////////////주차장
+
+// 마커를 표시할 위치입니다
+var position8 =  new kakao.maps.LatLng(37.48701890093129,126.82668629604557);
+
+// 마커를 생성합니다
+var marker8 = new kakao.maps.Marker({
+position: position8,
+clickable: true // 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정합니다
+});
+
+// 아래 코드는 위의 마커를 생성하는 코드에서 clickable: true 와 같이
+// 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정합니다
+// marker.setClickable(true);
+
+// 마커를 지도에 표시합니다.
+marker8.setMap(map);
+// 마커를 지도에 표시합니다.
+
+// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
+var iwContent8 = '<div"><img src="img/09.png" width="400px" /></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+
+// 인포윈도우를 생성합니다
+var infowindow8 = new kakao.maps.InfoWindow({
+content : iwContent8,
+removable : iwRemoveable
+});
+
+// 마커에 클릭이벤트를 등록합니다
+kakao.maps.event.addListener(marker8, 'click', function() {
+// 마커 위에 인포윈도우를 표시합니다
+infowindow8.open(map, marker8);
+});
+
+///////////////////////////주차장
+
+//////////////////행복기숙사
+// 마커를 표시할 위치입니다
+var position9 =  new kakao.maps.LatLng(37.48689177155986 , 126.82601382488855 );
+
+// 마커를 생성합니다
+var marker9 = new kakao.maps.Marker({
+position: position9,
+clickable: true // 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정합니다
+});
+
+// 아래 코드는 위의 마커를 생성하는 코드에서 clickable: true 와 같이
+// 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정합니다
+// marker.setClickable(true);
+
+// 마커를 지도에 표시합니다.
+marker9.setMap(map);
+// 마커를 지도에 표시합니다.
+
+// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
+var iwContent9 = '<div"><img src="img/10.png" width="400px" /></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+
+// 인포윈도우를 생성합니다
+var infowindow9 = new kakao.maps.InfoWindow({
+content : iwContent9,
+removable : iwRemoveable
+});
+
+// 마커에 클릭이벤트를 등록합니다
+kakao.maps.event.addListener(marker9, 'click', function() {
+// 마커 위에 인포윈도우를 표시합니다
+infowindow9.open(map, marker9);
+});
+//////////////////////////////////행복기숙사
+////////////////////성베드로 학교
+
+// 마커를 표시할 위치입니다
+var position10 =  new kakao.maps.LatLng(37.4867157092047 ,126.8257654803975 );
+
+// 마커를 생성합니다
+var marker10 = new kakao.maps.Marker({
+position: position10,
+clickable: true // 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정합니다
+});
+
+// 아래 코드는 위의 마커를 생성하는 코드에서 clickable: true 와 같이
+// 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정합니다
+// marker.setClickable(true);
+
+// 마커를 지도에 표시합니다.
+marker10.setMap(map);
+// 마커를 지도에 표시합니다.
+
+// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
+var iwContent10 = '<div"><img src="img/11.png" width="400px" /></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+
+// 인포윈도우를 생성합니다
+var infowindow10 = new kakao.maps.InfoWindow({
+content : iwContent10,
+removable : iwRemoveable
+});
+
+// 마커에 클릭이벤트를 등록합니다
+kakao.maps.event.addListener(marker10, 'click', function() {
+// 마커 위에 인포윈도우를 표시합니다
+infowindow10.open(map, marker10);
+});
+
+///////////////////////////////성베드로 학교
+////////////////////운동장
+
+// 마커를 표시할 위치입니다
+var position11 =  new kakao.maps.LatLng(37.487251213906646,126.82536283726492 );
+
+// 마커를 생성합니다
+var marker11 = new kakao.maps.Marker({
+position: position11,
+clickable: true // 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정합니다
+});
+
+// 아래 코드는 위의 마커를 생성하는 코드에서 clickable: true 와 같이
+// 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정합니다
+// marker.setClickable(true);
+
+// 마커를 지도에 표시합니다.
+marker11.setMap(map);
+// 마커를 지도에 표시합니다.
+
+// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
+var iwContent11 = '<div"><img src="img/12.png" width="400px" /></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+
+// 인포윈도우를 생성합니다
+var infowindow11 = new kakao.maps.InfoWindow({
+content : iwContent11,
+removable : iwRemoveable
+});
+
+// 마커에 클릭이벤트를 등록합니다
+kakao.maps.event.addListener(marker11, 'click', function() {
+// 마커 위에 인포윈도우를 표시합니다
+infowindow11.open(map, marker11);
+});
+
+/////////////////////////////////////////////운동장
+///////////////////////나눔관
+
+// 마커를 표시할 위치입니다
+var position12 =  new kakao.maps.LatLng(37.48775046753678,126.82481893418622);
+
+// 마커를 생성합니다
+var marker12 = new kakao.maps.Marker({
+position: position12,
+clickable: true // 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정합니다
+});
+
+// 아래 코드는 위의 마커를 생성하는 코드에서 clickable: true 와 같이
+// 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정합니다
+// marker.setClickable(true);
+
+// 마커를 지도에 표시합니다.
+marker12.setMap(map);
+// 마커를 지도에 표시합니다.
+
+// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
+var iwContent12 = '<div"><img src="img/13.png" width="400px" /></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+
+// 인포윈도우를 생성합니다
+var infowindow12 = new kakao.maps.InfoWindow({
+content : iwContent12,
+removable : iwRemoveable
+});
+
+// 마커에 클릭이벤트를 등록합니다
+kakao.maps.event.addListener(marker12, 'click', function() {
+// 마커 위에 인포윈도우를 표시합니다
+infowindow12.open(map, marker12);
+});
+
+////////////////////////////////////////나눔관
+///////////////////////월당관
+
+// 마커를 표시할 위치입니다
+var position14 =  new kakao.maps.LatLng(37.487216407574046 ,126.82619963785141 );
+
+// 마커를 생성합니다
+var marker14 = new kakao.maps.Marker({
+position: position14,
+clickable: true // 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정합니다
+});
+
+// 아래 코드는 위의 마커를 생성하는 코드에서 clickable: true 와 같이
+// 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정합니다
+// marker.setClickable(true);
+
+// 마커를 지도에 표시합니다.
+marker14.setMap(map);
+// 마커를 지도에 표시합니다.
+
+// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
+var iwContent14 = '<div"><img src="img/01.png" width="400px" /></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+
+// 인포윈도우를 생성합니다
+var infowindow14 = new kakao.maps.InfoWindow({
+content : iwContent14,
+removable : iwRemoveable
+});
+
+// 마커에 클릭이벤트를 등록합니다
+kakao.maps.event.addListener(marker14, 'click', function() {
+// 마커 위에 인포윈도우를 표시합니다
+infowindow14.open(map, marker14);
+});
+
+////////////////////////////////////////월당관
+
+///////////////////////구두인관
+
+// 마커를 표시할 위치입니다
+var position13 =  new kakao.maps.LatLng(37.48839054877247 ,126.82506619783042  );
+
+// 마커를 생성합니다
+var marker13 = new kakao.maps.Marker({
+position: position13,
+clickable: true // 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정합니다
+});
+
+// 아래 코드는 위의 마커를 생성하는 코드에서 clickable: true 와 같이
+// 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정합니다
+// marker.setClickable(true);
+
+// 마커를 지도에 표시합니다.
+marker13.setMap(map);
+// 마커를 지도에 표시합니다.
+
+// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
+var iwContent13= '<div"><img src="13.PNG"  /></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+
+// 인포윈도우를 생성합니다
+var infowindow13 = new kakao.maps.InfoWindow({
+content : iwContent13,
+removable : iwRemoveable
+});
+
+// 마커에 클릭이벤트를 등록합니다
+kakao.maps.event.addListener(marker13, 'click', function() {
+// 마커 위에 인포윈도우를 표시합니다
+infowindow13.open(map, marker13);
+});
+
+///////////////////////////////////////구두인관
+
+////////////////////////////
+var path = [
+new kakao.maps.LatLng(37.48842639631333, 126.82493608139843),
+new kakao.maps.LatLng(37.487898881551175, 126.8246489807585),
+new kakao.maps.LatLng(37.486445116036144, 126.82556823799683),
+new kakao.maps.LatLng(37.487113978628216, 126.82700832606314),
+new kakao.maps.LatLng(37.487600255720324, 126.82682629147004),
+new kakao.maps.LatLng(37.48860741672908, 126.82548971326213 ),
+
+];
+
+var hole = [
+new kakao.maps.LatLng(37.48842639631500,  126.82493608000000),
+new kakao.maps.LatLng(37.487898881000000, 126.82464898000000),
+new kakao.maps.LatLng(37.486445116000000, 126.82556823000000),
+new kakao.maps.LatLng(37.487113978600000, 126.82700832000000),
+new kakao.maps.LatLng(37.487600255700000, 126.82682629000000),
+new kakao.maps.LatLng(37.488607416700000, 126.82548000000000),
+];
+
+// 다각형을 생성하고 지도에 표시합니다
+var polygon = new kakao.maps.Polygon({
+map: map,
+path: [path, hole], // 좌표 배열의 배열로 하나의 다각형을 표시할 수 있습니다
+strokeWeight: 2,
+strokeColor: '#b26bb2',
+strokeOpacity: 0.8,
+fillColor: '#f9f',
+fillOpacity: 0.7
+});
+		</script>
+
+		<!-- footer 시작-->
+		<footer class="footer_area padding_top">
+			<div class="container">
+
+				<div class="row justify-content-between section_padding">
+					<div class="col-xl-2 col-sm-6 col-md-3 mb-4 mb-xl-0 single-footer-widget">
+						<h4>contact</h4>
+						<ul>
+							<li>
+								<a>학과 행정실
+								<br>
+								☎ 02-2610-4334
+							</li>
+							<li>
+								<a href="http://glocalit.skhu.ac.kr">학과 홈페이지</a>
+							</li>
+							<li>
+								<a href="http://cafe.naver.com/glocalit.cafe">네이버 카페</a>
+							</li>
+						</ul>
+					</div>
+
+				</div>
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="copyright_text">
+							<img src="img/footer_logo.png" width="15%" height="15%" alt="#">
+							<p class="footer-text">
+								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+								Copyright &copy;
+								<script>
+									document.write(new Date().getFullYear());
+								</script>
+								All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by 글로컬IT학과 <!-- <a href="https://colorlib.com" target="_blank">Colorlib</a> -->
+								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!-- footer 끝-->
+
+		<!-- jquery plugins-->
+		<!-- jquery -->
+		<script src="js/jquery-1.12.1.min.js"></script>
+		<!-- popper js -->
+		<script src="js/popper.min.js"></script>
+		<!-- bootstrap js -->
+		<script src="js/bootstrap.min.js"></script>
+		<!-- counterup js -->
+		<script src="js/jquery.counterup.min.js"></script>
+		<!-- waypoints js -->
+		<script src="js/waypoints.min.js"></script>
+		<!-- easing js -->
+		<script src="js/jquery.magnific-popup.js"></script>
+		<!-- particles js -->
+		<script src="js/owl.carousel.min.js"></script>
+		<!-- custom js -->
+		<script src="js/custom.js"></script>
+	</body>
+
+</html>

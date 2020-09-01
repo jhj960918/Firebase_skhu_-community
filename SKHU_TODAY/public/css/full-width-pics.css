@@ -1,0 +1,98 @@
+/*!
+ * Start Bootstrap - Full Width Pics (https://startbootstrap.com/template-overviews/full-width-pics)
+ * Copyright 2013-2019 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-full-width-pics/blob/master/LICENSE)
+ */
+/*main index 부분 CSS*/
+body {
+  padding-top: 100px;
+}
+
+.bg-image-full {
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+.align-center{text-align: center;}
+body{
+    display: table-cell;
+   
+    background-color: #e0f2f1 !important;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
+html, body {
+    height: 100%;
+}
+/*카테고리 CSS*/
+.btn btn-primary btn-lg active1{text-align: center;
+background-color:black;
+width="200" height="200"}
+
+.btn1{
+<<<<<<< HEAD
+	
+	 top:50%;
+	text-align: left;
+}
+.btn2{
+	
+	
+	text-align: left;
+}
+=======
+   
+    top:50%;
+   text-align: left;
+}
+.btn2{
+   
+   
+   text-align: left;
+}
+
+.CategoryTable1{
+	position:absolute;
+	top: 35%;
+	left:35%;
+	border: 200px;
+	margin: 30px;
+}
+.CategoryTable2{
+	position:absolute;
+	top: 50%;
+	left:35%;
+	border: 200px;
+	margin: 30px;
+}
+.CategoryTable3{
+	position:absolute;
+	top: 65%;
+	left:35%;
+	border: 200px;
+	margin: 30px;
+}
+.CategoryLogo{
+	position:absolute;
+	top: 5%;
+	left:8%;
+	
+}
+
+.HomeBtn{
+	
+	position:absolute ; 
+	left:40%;
+	bottom : 0%;
+}
+
+
+
+
+>>>>>>> 69f8bf16a36a6d8153c6dcc9eb9166cb36797c61

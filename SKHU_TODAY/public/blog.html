@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Firebase 방명록</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+      crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="css/blog.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <!-- div.wrap>div.panel.clear>div.logo+div.logins^ul.wrs.clear>li.wr+li -->
+    <div class="wrap">
+      <div class="panel clear">
+        <div class="logo">자유게시판</div>
+        <div class="logins">
+          <span id="user_email"></span>
+          <button type="button" class="w3-button w3-green" id="login_bt">로그인</button>
+          <button type="button" class="w3-button w3-red" id="logout_bt">로그아웃</button>
+        </div>
+      </div>
+      <ul class="wrs clear">
+        <li class="wr">
+          <input type="text" id="content" class="w3-input w3-border" name="content" placeholder="당신의 한마디를 남겨주세요.">
+        </li>
+        <li>
+          <button type="button" id="save_bt" class="w3-button w3-indigo">저장</button>
+        </li>
+      </ul>
+      <div class="gbooks"></div>
+    </div>
+	    <script src="https://www.gstatic.com/firebasejs/7.1.0/firebase.js"></script>
+	    <script src="js/index.js"></script>
+  </body>
+  
+</html>
